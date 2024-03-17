@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="closed.css" />
+  </head>
+  <script>
+    function calculateTimeUntilOpening() {
+      const today = new Date();
+      const currentDay = today.getDay();
+      const currentHour = today.getHours();
+
+      const openingDay = currentDay < 1 ? 1 : currentDay;
+      const openingHour = 9;
+
+      const daysUntilOpening = openingDay - currentDay;
+      const hoursUntilOpening = (openingHour - currentHour + 24) % 24;
+
+      const countdownElement = document.getElementById("countdown");
+      countdownElement.textContent = `Le magasin ouvrira dans ${daysUntilOpening} jours et ${hoursUntilOpening} heures.`;
+    }
+
+    window.onload = calculateTimeUntilOpening;
+  </script>
+  <body>
+    <h1>Le magasin est actuellement fermé</h1>
+    <div id="countdown"></div>
+    <img src="./clesed.png" alt="erreu" />
+  </body>
+</html>
